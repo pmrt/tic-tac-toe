@@ -17,8 +17,8 @@ APP.js
 			player2 = new Player(2, 'O')
 			myGame.play(player1, 3);
 			t = new Tracker()
-			t.checkPlayer(myGame, player1, player2);
-			t.checkPlayer(myGame, player2, player1);
+			t.checkPlayer(myGame, player1);
+			t.checkPlayer(myGame, player2);
 
 
 
