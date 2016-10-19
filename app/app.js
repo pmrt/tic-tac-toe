@@ -8,7 +8,17 @@ Javascript.
 AUTHOR: Pedro J. Martínez
 
 [API]
+
+	SUMMARY:
+			myGame = new Game();
+			player1 = new Player(1);
+			myGame.play(player1, 3);
+			t = new Tracker()
+			t.checkPlayer(myGame, player1, player2);
+			t.checkPlayer(myGame, player2, player1);
 	
+	
+
 	STARTING A NEW GAME:
 	myGame = new Game();
 
