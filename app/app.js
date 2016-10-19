@@ -7,17 +7,20 @@ Javascript.
 
 AUTHOR: Pedro J. Martínez
 
+APP.js
+
 [API]
 
 	SUMMARY:
 			myGame = new Game();
-			player1 = new Player(1);
+			player1 = new Player(1, 'X');
+			player2 = new Player(2, 'O')
 			myGame.play(player1, 3);
 			t = new Tracker()
 			t.checkPlayer(myGame, player1, player2);
 			t.checkPlayer(myGame, player2, player1);
-	
-	
+
+
 
 	STARTING A NEW GAME:
 	myGame = new Game();
@@ -25,12 +28,13 @@ AUTHOR: Pedro J. Martínez
 	==========================================
 
 	CREATING A NEW PLAYER:
-	player1 = new Player(<playerid>)
+	player1 = new Player(<playerid>, <player icon>)
 
 	Where:
 
-		- playerid must be 1 or 2 (the 
+		- playerid must be 1 or 2 (the
 		  player number) for handling turns.
+		- player icon must be 'X' or 'O'.
 
 	==========================================
 
@@ -120,7 +124,7 @@ class Tracker {
 					[2,5,8],
 					[3,6,9],
 					[4,5,6],
-					[7,8,9] 
+					[7,8,9]
 					]
 	}
 
@@ -142,11 +146,11 @@ class Tracker {
 	hasAnyValueCombination(combination, game, player){
 		/*
 		Checks if a 'player' (object) got a
-		value of a given 'combination' (array), 
+		value of a given 'combination' (array),
 		Note: not the whole combination, that is
 		player did NOT get each value of a given
 		combination.
-		
+
 		Note: Hell yeah. I'm reversing the return result
 		for reversing it again within the task of
 		checking player inside checkPlayer().
@@ -180,14 +184,15 @@ class Tracker {
 			- The easy way it's to check for
 			each of this 3-combinations.
 
-		If player have won it will return true, 
+		If player have won it will return true,
 		otherwise it will return false.
+		@Return: boolean
 		*/
 		for (let combination of this.winnerComb) {
 			if (this.hasCombination(combination,game,player)) {
 				return !this.hasAnyValueCombination(combination, game, rival)
 			}
-		} 
+		}
 		return false;
 	}
 
@@ -197,30 +202,8 @@ class Player {
 	/*
 	Game players.
 	*/
-	constructor(id){
+	constructor(id, icon){
 		this.id = id;
-	}
+		this.icon = icon;
+	} // TO-DO check id,icon.
 }
-
-
-// TESTING ZONE ======================================
-
-// Creating new player
-player1 = new Player(1);
-player2 = new Player(2);
-
-// Creating new Game
-myGame = new Game();
-
-// Playing (winning test)
-myGame.play(player1, 1);
-myGame.play(player1, 3);
-myGame.play(player1, 2);
-
-myGame.play(player2, 4);
-
-// Creating new Tracker
-t = new Tracker();
-
-// Test for winner in Game: myGame with player: player1
-document.write(t.checkPlayer(myGame, player1, player2));
