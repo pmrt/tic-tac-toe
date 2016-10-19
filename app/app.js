@@ -145,7 +145,10 @@ class Tracker {
 
 	hasAnyValueCombination(combination, game, player){
 		/*
-		DEPRECATED: NOT NEEDED.
+		DEPRECATED: NOT NEEDED. Players can't repeat
+		cells thanks to Game.isEmpty(), therefore, we DON'T
+		have to check for possible winning combinations
+		(with hasCombination()) to include a value played before.
 
 		Checks if a 'player' (object) got a
 		value of a given 'combination' (array),
