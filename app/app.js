@@ -66,8 +66,8 @@ class Game {
 					5: 0,
 					6: 0,
 					7: 0,
-				    	8: 0,
-				    	9: 0
+				    8: 0,
+				    9: 0
 			     }
 	}
 
@@ -135,6 +135,12 @@ class Tracker {
 		Note: not the whole combination, that is
 		player doesn't got each value of a given
 		combination.
+		
+		Note: Hell yeah. I inverse the return result
+		for reversing it again wihtin the task of
+		checking player in checkPlayer().
+		It's just a semantic thing you can just do it
+		otherwise.
 
 		If he does, return true.
 		*/
