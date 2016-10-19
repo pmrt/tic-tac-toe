@@ -48,11 +48,11 @@ attributes in order to work properly. Here you got an simple example:
 		</table>
 ```
 
-That's it! You can build you simple Tic-tac-toe game for your web with your own html and css.
+That's it! You can build you a really simple Tic-tac-toe game for your web with your own html and css.
 
 ### Using the API to add new features
 
-Sometimes you just want to go a step further and program
+Sometimes you want to go a step further and program
 new features re-using the code.
 
 *Work in progress* : To implement - API controller 
