@@ -91,7 +91,7 @@ class Game {
 
 	isEmpty(ncell) {
 		/*
-		TO-USE
+		//TO-USE
 		Checks if a ncell (int) of cell is empty,
 		That is not played before.
 		Returns True if it does.
@@ -144,16 +144,17 @@ class Tracker {
 		Checks if a 'player' (object) got a
 		value of a given 'combination' (array), 
 		Note: not the whole combination, that is
-		player doesn't got each value of a given
+		player did NOT get each value of a given
 		combination.
 		
 		Note: Hell yeah. I'm reversing the return result
-		for reversing it again wihtin the task of
+		for reversing it again within the task of
 		checking player inside checkPlayer().
-		It's just a semantic thing you can just do it
+		It's just a semantic thing you can do it
 		otherwise.
 
 		If he does, return true.
+		@Return: boolean
 		*/
 		return combination.every(function(item){
 			return !(game.cell[item] != player.id);
