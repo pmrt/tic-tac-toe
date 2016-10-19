@@ -1,30 +1,49 @@
 /*
 
-API:
+Tic-Tac-Toe
+
+Simple Tic-Tac-Toe game written in
+Javascript.
+
+AUTHOR: Pedro J. Martínez
+
+[API]
 	
-	INSTANCING A NEW GAME:
-	myGame = new Game()
-
-	=====================
-
 	STARTING A NEW GAME:
-	myGame.start(player)
+	myGame = new Game();
+
+	==========================================
+
+	CREATING A NEW PLAYER:
+	player1 = new Player(<playerid>)
 
 	Where:
 
-		- player can be 1 or 2 (the 
-		  player number) for handling turns,
-		  by default:1
+		- playerid must be 1 or 2 (the 
+		  player number) for handling turns.
 
-	=====================
+	==========================================
 
 	NEW GAME TURN:
-	myGame.play(player, ncell)
+	myGame.play(<player obj>, <cell number>)
 
 	Where:
 
 		- player can be 1 or 2.
 		- cell can be any value among 1 to 9.
+
+	==========================================
+
+	CREATING A TRACKER:
+	t = new Tracker();
+
+	Note. The tracker must be used
+	for tracking the game each round.
+
+	==========================================
+
+	CHECKING IF A PLAYER HAVE WON WITH THE TRACKER:
+	t.checkPlayer(<game>, <player-to-check>, <rival-player>);
 
 */
 
@@ -56,7 +75,6 @@ class Game {
 		/*
 		Set the 'ncell' (int) of cell chosen
 		by 'player' (object).
-		@Return: undefined
 		*/
 		this.cell[ncell] = player.id;
 	}
@@ -77,6 +95,10 @@ class Tracker {
 	/*
 	Class for handling the
 	game events each round.
+
+	ATTRIB:
+	winnerComb : JSON Object with
+	the winner possible combinations
 	*/
 	constructor () {
 		this.winnerComb = [
@@ -91,12 +113,14 @@ class Tracker {
 					]
 	}
 
-	isCombinationOf(combination, game, player){
+	hasCombination(combination, game, player){
 		/*
-		Checks if each player of the passed
-		'combination' which is an array is
-		equal to player.
-		If it does, return true.
+		Checks if a 'player' (object) got
+		a whole 'combination' (array), that is
+		player got each value of a given
+		combination.
+
+		If he does, return true.
 		@Return: boolean
 		*/
 		return combination.every(function(item){
@@ -104,10 +128,31 @@ class Tracker {
 		});
 	}
 
-
-	checkPlayer(game, player) {
+	hasAnyValueCombination(combination, game, player){
 		/*
-		Checks for all possible winner combinations.
+		Checks if a 'player' (object) got a
+		value of a given 'combination' (array), 
+		Note: not the whole combination, that is
+		player doesn't got each value of a given
+		combination.
+
+		If he does, return true.
+		*/
+		return combination.every(function(item){
+			return !(game.cell[item] != player.id);
+		});
+	}
+
+
+	checkPlayer(game, player, rival) {
+		/*
+		Checks all possible winner combinations
+		for player against its rival. That said,
+
+		- checkPlayer(myGame, player1, player2).
+		Will check if player1 won agasint player2.
+		- checkPlayer(myGame, player2, player1).
+		Will check if player2 won against player1.
 
 		Where:
 			- If a player1 got one of this
@@ -117,13 +162,15 @@ class Tracker {
 			- The easy way it's to check for
 			each of this 3-combinations.
 
+		If player have won it will return true, 
+		otherwise it will return false.
 		*/
 		for (let combination of this.winnerComb) {
-			if (this.isCombinationOf(combination,game,player)){
-				console.log('Un jugador tiene una combinación')
+			if (this.hasCombination(combination,game,player)) {
+				return !this.hasAnyValueCombination(combination, game, rival)
 			}
-		}
-
+		} 
+		return false;
 	}
 
 }
@@ -137,10 +184,12 @@ class Player {
 	}
 }
 
-// TESTING ZONE
+
+// TESTING ZONE ======================================
 
 // Creating new player
-player1 = new Player();
+player1 = new Player(1);
+player2 = new Player(2);
 
 // Creating new Game
 myGame = new Game();
@@ -150,8 +199,10 @@ myGame.play(player1, 1);
 myGame.play(player1, 3);
 myGame.play(player1, 2);
 
+myGame.play(player2, 4);
+
 // Creating new Tracker
 t = new Tracker();
 
 // Test for winner in Game: myGame with player: player1
-t.checkPlayer(myGame, player1);
+document.write(t.checkPlayer(myGame, player1, player2));
