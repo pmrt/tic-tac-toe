@@ -2,10 +2,30 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Tic-Tac-Toe</title>
 	<script type="text/javascript" src="../app/app.js"></script>
+	<script type="text/javascript" src="../view/graph.js"></script>
+	<link rel="stylesheet" href="main.css">
 </head>
 <body>
-	
+	<div class="content">
+		<table id="panel">
+			<tr>
+				<td id="cell-1" onClick="view.play('cell-1',1)"></td>
+				<td id="cell-2" onClick="view.play('cell-2',2)"></td>
+				<td id="cell-3" onClick="view.play('cell-3',3)"></td>
+			</tr>
+			<tr>
+				<td id="cell-4" onClick="view.play('cell-4',4)"></td>
+				<td id="cell-5" onClick="view.play('cell-5',5)"></td>
+				<td id="cell-6" onClick="view.play('cell-6',6)"></td>
+			</tr>
+			<tr>
+				<td id="cell-7" onClick="view.play('cell-7',7)"></td>
+				<td id="cell-8" onClick="view.play('cell-8',8)"></td>
+				<td id="cell-9" onClick="view.play('cell-9',9)"></td>
+			</tr>
+		</table>
+	</div>
 </body>
 </html>
