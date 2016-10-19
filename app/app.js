@@ -50,23 +50,20 @@ class Game {
 				    8: 0,
 				    9: 0
 				}
-
-	start(player=1){
-
 	}
 
 	play(player, ncell) {
 		/*
-		Set the 'ncell' of cell chosen
-		by 'player'.
+		Set the 'ncell' (int) of cell chosen
+		by 'player' (object).
 		@Return: undefined
 		*/
-		this.cell[ncell] = player;
+		this.cell[ncell] = player.id;
 	}
 
 	isEmpty(ncell) {
 		/*
-		Checks if a cell is empty,
+		Checks if a ncell (int) of cell is empty,
 		That is not played before.
 		Returns True if it does.
 		@Return: boolean
@@ -76,9 +73,13 @@ class Game {
 
 }
 
-class Tracker() {
+class Tracker {
+	/*
+	Class for handling the
+	game events each round.
+	*/
 	constructor () {
-		const this.winnerComb = [
+		this.winnerComb = [
 					[1,2,3],
 					[1,5,9],
 					[7,5,3],
@@ -90,7 +91,21 @@ class Tracker() {
 					]
 	}
 
-	static check(game) {
+	isCombinationOf(combination, game, player){
+		/*
+		Checks if each player of the passed
+		'combination' which is an array is
+		equal to player.
+		If it does, return true.
+		@Return: boolean
+		*/
+		return combination.every(function(item){
+			return game.cell[item] == player.id;
+		});
+	}
+
+
+	checkPlayer(game, player) {
 		/*
 		Checks for all possible winner combinations.
 
@@ -103,9 +118,9 @@ class Tracker() {
 			each of this 3-combinations.
 
 		*/
-		for (combination of this.winnerComb) {
-			for (ncell of combination) {
-				if (game.cell[ncell] = 1)
+		for (let combination of this.winnerComb) {
+			if (this.isCombinationOf(combination,game,player)){
+				console.log('Un jugador tiene una combinación')
 			}
 		}
 
@@ -113,7 +128,30 @@ class Tracker() {
 
 }
 
-// TO-DO
-class Player(){
-
+class Player {
+	/*
+	Game players.
+	*/
+	constructor(id){
+		this.id = id;
+	}
 }
+
+// TESTING ZONE
+
+// Creating new player
+player1 = new Player();
+
+// Creating new Game
+myGame = new Game();
+
+// Playing (winning test)
+myGame.play(player1, 1);
+myGame.play(player1, 3);
+myGame.play(player1, 2);
+
+// Creating new Tracker
+t = new Tracker();
+
+// Test for winner in Game: myGame with player: player1
+t.checkPlayer(myGame, player1);
