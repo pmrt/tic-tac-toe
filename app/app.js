@@ -136,9 +136,9 @@ class Tracker {
 		player doesn't got each value of a given
 		combination.
 		
-		Note: Hell yeah. I inverse the return result
+		Note: Hell yeah. I'm reversing the return result
 		for reversing it again wihtin the task of
-		checking player in checkPlayer().
+		checking player inside checkPlayer().
 		It's just a semantic thing you can just do it
 		otherwise.
 
