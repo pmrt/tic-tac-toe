@@ -22,13 +22,10 @@ class View {
 
 	ATTRIB:
 	 - CurrentPlayer: player obj whose turn is.
-	 - Rival: player obj who isn't his turn.
-	  Just simplifying the process.
 	*/
 
 	constructor() {
 		this.currentPlayer = player1;
-		this.rival = player2;
 	}
 
 	changePlayer() {
@@ -37,10 +34,8 @@ class View {
 		*/
 		if (this.currentPlayer.id == player1.id) {
 			this.currentPlayer = player2;
-			this.rival = player1;
 		} else if (this.currentPlayer.id == player2.id) {
 			this.currentPlayer = player1;
-			this.rival = player2;
 		}
 	}
 
@@ -49,7 +44,7 @@ class View {
 		Calls Tracker to handle the game events
 		such as winning.
 		*/
-		if (t.checkPlayer(myGame, this.currentPlayer, this.rival)){
+		if (t.checkPlayer(myGame, this.currentPlayer)){
 			alert(`Player${this.currentPlayer.id} has won!`);
 		}
 	}
