@@ -24,8 +24,8 @@ class View {
 	 - CurrentPlayer: player obj whose turn is.
 	*/
 
-	constructor() {
-		this.currentPlayer = player1;
+	constructor(firstPlayer) {
+		this.currentPlayer = firstPlayer;
 	}
 
 	changePlayer() {
@@ -85,7 +85,7 @@ window.onload = function(){
 	myGame = new Game();
 	t = new Tracker();
 
-	view = new View();
+	view = new View(player1);
 
 }
 
