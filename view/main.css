@@ -1,0 +1,29 @@
+body, html {
+	margin: 0;
+	height: 100%;
+}
+
+.content {
+	position: absolute;
+	top: 20%;
+	bottom: 20%;
+	left: 35%;
+	right: 35%;
+}
+
+#panel {
+	display: flex;
+	justify-content: center;
+}
+
+#panel td {
+	margin: auto;
+	padding: 0;
+	height: 126px;
+	width: 126px;
+	border: 2.5px solid black;
+	border-radius: 6px;
+	text-align: center;
+	font-size: 30px;
+
+}
