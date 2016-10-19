@@ -81,6 +81,7 @@ class Game {
 
 	isEmpty(ncell) {
 		/*
+		TO-USE
 		Checks if a ncell (int) of cell is empty,
 		That is not played before.
 		Returns True if it does.
