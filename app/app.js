@@ -66,9 +66,9 @@ class Game {
 					5: 0,
 					6: 0,
 					7: 0,
-				    8: 0,
-				    9: 0
-				}
+				    	8: 0,
+				    	9: 0
+			     }
 	}
 
 	play(player, ncell) {
@@ -150,7 +150,7 @@ class Tracker {
 		for player against its rival. That said,
 
 		- checkPlayer(myGame, player1, player2).
-		Will check if player1 won agasint player2.
+		Will check if player1 won against player2.
 		- checkPlayer(myGame, player2, player1).
 		Will check if player2 won against player1.
 
