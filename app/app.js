@@ -57,7 +57,7 @@ APP.js
 	==========================================
 
 	CHECKING IF A PLAYER HAVE WON WITH THE TRACKER:
-	t.checkPlayer(<game>, <player-to-check>, <rival-player>);
+	t.checkPlayer(<game>, <player-to-check>);
 
 */
 
@@ -145,6 +145,8 @@ class Tracker {
 
 	hasAnyValueCombination(combination, game, player){
 		/*
+		DEPRECATED: NOT NEEDED.
+
 		Checks if a 'player' (object) got a
 		value of a given 'combination' (array),
 		Note: not the whole combination, that is
@@ -166,14 +168,14 @@ class Tracker {
 	}
 
 
-	checkPlayer(game, player, rival) {
+	checkPlayer(game, player) {
 		/*
 		Checks all possible winner combinations
 		for player against its rival. That said,
 
-		- checkPlayer(myGame, player1, player2).
+		- checkPlayer(myGame, player1).
 		Will check if player1 won against player2.
-		- checkPlayer(myGame, player2, player1).
+		- checkPlayer(myGame, player2).
 		Will check if player2 won against player1.
 
 		Where:
@@ -190,7 +192,7 @@ class Tracker {
 		*/
 		for (let combination of this.winnerComb) {
 			if (this.hasCombination(combination,game,player)) {
-				return !this.hasAnyValueCombination(combination, game, rival)
+				return true;
 			}
 		}
 		return false;
