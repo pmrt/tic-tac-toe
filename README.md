@@ -18,11 +18,11 @@ First step, in the <head> section of your html you need to add the needed script
 ```
 
 Next you just need to add the html elements which you want to use as onClick events, you can use whatever you want in my
-example i use a simple table.
+example I use a simple table.
 
 Keep in mind you gotta add the following attributes to your items:
 
-- ``html id="cell-<id>".``
+- ``id="cell-<id>".``
 - ``onClick="view.play('cell-<id>',<id>)"``.
 
 Where you have to replace ``<id>`` with the number of the cell. You must add 9 elements with both
@@ -56,3 +56,7 @@ Sometimes you just want to go a step further and program
 new features re-using the code.
 
 *Work in progress* : To implement - API controller 
+
+## Screenshot
+
+![Alt text](https://raw.githubusercontent.com/pmrt/tic-tac-toe/master/screenshot/screenshot_1.png)
