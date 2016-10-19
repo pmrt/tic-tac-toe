@@ -22,8 +22,8 @@ example I use a simple table.
 
 Keep in mind you gotta add the following attributes to your items:
 
-- ``id="cell-<id>".``
-- ``onClick="view.play('cell-<id>',<id>)"``.
+- ``id="cell-<id>"``
+- ``onClick="view.play('cell-<id>',<id>)"``
 
 Where you have to replace ``<id>`` with the number of the cell. You must add 9 elements with both
 attributes in order to work properly. Here you got an simple example:
