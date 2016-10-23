@@ -6,7 +6,7 @@ Contact | <pedrojmrt@gmail.com>
 
 ### app.js API
 
-Want to modify the game GUI? You can do it without coding a single line of Javascript, nothing but the calls to the API!.
+Want to modify the game GUI? You can do it without coding a single line of Javascript, nothing but the calls to the API!
 
 ### Quick guide without using graph.js
 
@@ -26,7 +26,7 @@ Keep in mind you gotta add the following attributes to your items:
 - ``onClick="view.play('cell-<id>',<id>)"``
 
 Where you have to replace ``<id>`` with the number of the cell. You must add 9 elements with both
-attributes in order to work properly. Here you got an simple example:
+attributes in order to work properly. Here you got a simple example:
 
 ```html
 		<table id="panel">
