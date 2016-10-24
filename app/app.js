@@ -142,34 +142,6 @@ class Tracker {
 		});
 	}
 
-	hasAnyValueCombination(combination, game, player){
-		/*
-		DEPRECATED: NOT NEEDED. Players can't repeat
-		cells thanks to Game.isEmpty(), therefore, we DON'T
-		have to check for possible winning combinations
-		(with hasCombination()) to include a value played before.
-
-		Checks if a 'player' (object) got a
-		value of a given 'combination' (array),
-		Note: not the whole combination, that is
-		player did NOT get each value of a given
-		combination.
-
-		Note: Hell yeah. I'm reversing the return result
-		for reversing it again within the task of
-		checking player inside checkPlayer().
-		It's just a semantic thing you can do it
-		otherwise.
-
-		If he does, return true.
-		@Return: boolean
-		*/
-		return combination.every(function(item){
-			return !(game.cell[item] != player.id);
-		});
-	}
-
-
 	checkPlayer(game, player) {
 		/*
 		Checks all possible winner combinations
